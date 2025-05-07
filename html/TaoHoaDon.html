@@ -98,15 +98,27 @@
   <script>
     document.addEventListener('DOMContentLoaded', () => {
       // 1. Kiểm tra & hiển thị user
-      const user = localStorage.getItem('loggedInUser');
-     
-      document.getElementById('greeting').textContent = `Xin chào, ${user}`;
-      document.getElementById('user-info').style.display = 'flex';
-      document.querySelector('.login-signup').style.display = 'none';
-      document.getElementById('logout-btn').onclick = () => {
+      const loggedInUser = localStorage.getItem('loggedInUser');
+      
+      
+      // Hiển thị thông tin người dùng
+      const userInfo = document.getElementById('user-info');
+      const loginSignup = document.querySelector('.login-signup');
+      const greeting = document.getElementById('greeting');
+      const logoutBtn = document.getElementById('logout-btn');
+    
+      if (loggedInUser) {
+        greeting.textContent = `Xin chào, ${loggedInUser}`;
+        userInfo.style.display = 'flex';
+        loginSignup.style.display = 'none';
+      }
+    
+      
+      logoutBtn.addEventListener('click', function () {
         localStorage.removeItem('loggedInUser');
-        window.location = 'login.html';
-      };
+        alert('Bạn đã đăng xuất!');
+        window.location.href = 'index.html';
+      });
 
       // 2. Đổ giỏ hàng + tính tổng
       const cart = JSON.parse(localStorage.getItem('cart') || '[]');

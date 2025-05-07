@@ -20,7 +20,7 @@
   <script>
     // 1) Nếu đã đăng nhập rồi, tránh hiển thị lại form
     if (localStorage.getItem('loggedInUser')) {
-      window.location.href = 'index.html';
+      window.location.href = '../index.html';
     }
 
     document.getElementById('login-form').addEventListener('submit', function (e) {
@@ -47,9 +47,8 @@
       // 4) Đăng nhập thành công
       localStorage.setItem('loggedInUser', username);
       alert('Đăng nhập thành công!');
-      window.location.href = 'index.html';
+      window.location.href = '../index.html';
     });
   </script>
-  <script src="../JS/auth.js"></script>
 </body>
 </html>
