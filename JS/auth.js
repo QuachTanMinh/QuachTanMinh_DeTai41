@@ -30,7 +30,7 @@ if (loginForm) {
             localStorage.setItem("loggedInUser", username);
             window.location.href = "index.html";
         } else {
-            alert("Tên đăng nhập hoặc mật khẩu không đúng!");
+            alert("!");
         }
     });
 }

@@ -50,12 +50,12 @@
     <nav class="nav1">
       <ul>
         <li><a href="/index.html">Trang chủ</a></li>
-        <li><a class="active" href="SanPham.html">Sản phẩm</a></li>
-        <li><a href="GioiThieu.html">Giới thiệu</a></li>
-        <li><a href="LienHe.html">Liên hệ</a></li>
-        <li><a href="shop.html">Giỏ hàng</a></li>
-        <li><a href="TaoHoaDon.html">Hóa đơn</a></li>
-        <li><a href="auth.html">Xác thực</a></li>
+        <li><a class="active" href="/SanPham.html">Sản phẩm</a></li>
+        <li><a href="/GioiThieu.html">Giới thiệu</a></li>
+        <li><a href="/LienHe.html">Liên hệ</a></li>
+        <li><a href="/shop.html">Giỏ hàng</a></li>
+        <li><a href="/TaoHoaDon.html">Hóa đơn</a></li>
+        
       </ul>
     </nav>
     <div class="header-right">
@@ -63,8 +63,8 @@
         <form><input type="search" placeholder="Nhập từ khóa tìm kiếm..."><button>Tìm</button></form>
       </div>
       <div class="login-signup">
-        <span><a href="login.html">Đăng nhập</a></span>
-        <span><a href="register.html">Đăng ký</a></span>
+        <span><a href="/login.html">Đăng nhập</a></span>
+        <span><a href="/register.html">Đăng ký</a></span>
       </div>
       <div class="user-info" id="user-info" style="display:none;">
         <span id="greeting"></span>
@@ -81,16 +81,16 @@
           <a href="#">Vật liệu tiêu hao</a>
           <ul class="dropdown_1lan">
             <li><a href="#">Nhựa & cao su</a></li>
-            <li><a href="/HTML/VatLieuCamMau.html">Vật liệu cầm máu</a></li>
-            <li><a href="/HTML/KimLoai.html">Kim loại</a></li>
-            <li><a href="/HTML/Giay.html">Giấy</a></li>
-            <li><a href="/HTML/PhuVuXetNghiem.html">Phục vụ xét nghiệm</a></li>
+            <li><a href="/VatLieuCamMau.html">Vật liệu cầm máu</a></li>
+            <li><a href="/KimLoai.html">Kim loại</a></li>
+            <li><a href="/Giay.html">Giấy</a></li>
+            <li><a href="/PhuVuXetNghiem.html">Phục vụ xét nghiệm</a></li>
             <li><a href="#">Nội thất y tế</a></li>
             <li><a href="#">Inox</a></li>
           </ul>
         </li>
-        <li><a href="/HTML/DungCuThamKham.html">Dụng cụ thăm khám</a></li>
-        <li><a href="/HTML/DungCuPhauThuat.html">Dụng cụ phẫu thuật</a></li>
+        <li><a href="/DungCuThamKham.html">Dụng cụ thăm khám</a></li>
+        <li><a href="/DungCuPhauThuat.html">Dụng cụ phẫu thuật</a></li>
         <li><a href="#">Dụng cụ nội soi</a></li>
       </ul>
     </div>
@@ -99,7 +99,7 @@
   <!-- Nội dung trang Sản phẩm -->
   <section class="products">
     <div class="container">
-      <h2>Tất cả sản phẩm phục vụ xét nghiệm</h2>
+      <h2>Tất cả sản phẩm giấy</h2>
       <div class="product-list" id="productList"></div>
     </div>
   </section>
@@ -126,16 +126,16 @@
   <footer>
     <div class="container">
       <p>&copy; 2025 Vật Tư Y Tế MQ. All rights reserved.</p>
-      <div class="sitemap"><a href="/HTML/SiteMap.html">SiteMap</a></div>
+      <div class="sitemap"><a href="/SiteMap.html">SiteMap</a></div>
     </div>
   </footer>
 
   <script>
     // Dữ liệu sản phẩm
     const products = [
-    { id: 7, name: 'Ống Nhòm Y Tế',description: 'Giúp nhìn rõ hơn.',price: 800000,  img: '/IMG/ongnhom.png',material: 'Hợp kim nhôm',manufacturer: 'VisionMed' },
-    { id: 5, name: 'Kính Hiển Vi',description: 'Phóng đại gấp nhiều lần để xem những thứ siêu nhỏ bé.', price: 1200000, img: '/IMG/kinhhienvi.png',material: 'Thủy tinh quang học', manufacturer: 'OptiGlobe Co.' },
-  
+    { id:4, name:'Bông Y Tế', description:'Thấm hút, cầm máu.', price:15000, img:'/IMG/bongyte.png', material:'Vải cotton', manufacturer:'MedFabric Ltd.' },
+    { id: 8, name: 'Khẩu Trang Y Tế',description: 'Bảo vệ mặt khỏi bụi bẩn, ngăn khói, kháng khuẩn.', price: 10000, img: '/IMG/khau-trang.png',material: 'Vải kháng khuẩn',manufacturer: 'SafeMask Co.' },
+    { id:11, name: 'Băng Gạc Y Tế', description: 'Băng cuộn thấm hút tốt, siêu bền.',price: 20000, img: '/IMG/banggacyte.png',material: 'Vải mềm',manufacturer: 'BandCare' },
     ];
     let cart = JSON.parse(localStorage.getItem('cart')||'[]');
 

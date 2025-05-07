@@ -50,12 +50,11 @@
     <nav class="nav1">
       <ul>
         <li><a href="/index.html">Trang chủ</a></li>
-        <li><a class="active" href="SanPham.html">Sản phẩm</a></li>
-        <li><a href="GioiThieu.html">Giới thiệu</a></li>
-        <li><a href="LienHe.html">Liên hệ</a></li>
-        <li><a href="shop.html">Giỏ hàng</a></li>
-        <li><a href="TaoHoaDon.html">Hóa đơn</a></li>
-        <li><a href="auth.html">Xác thực</a></li>
+        <li><a class="active" href="/SanPham.html">Sản phẩm</a></li>
+        <li><a href="/GioiThieu.html">Giới thiệu</a></li>
+        <li><a href="/LienHe.html">Liên hệ</a></li>
+        <li><a href="/shop.html">Giỏ hàng</a></li>
+        <li><a href="/TaoHoaDon.html">Hóa đơn</a></li>
       </ul>
     </nav>
     <div class="header-right">
@@ -63,8 +62,8 @@
         <form><input type="search" placeholder="Nhập từ khóa tìm kiếm..."><button>Tìm</button></form>
       </div>
       <div class="login-signup">
-        <span><a href="login.html">Đăng nhập</a></span>
-        <span><a href="register.html">Đăng ký</a></span>
+        <span><a href="/login.html">Đăng nhập</a></span>
+        <span><a href="/register.html">Đăng ký</a></span>
       </div>
       <div class="user-info" id="user-info" style="display:none;">
         <span id="greeting"></span>
@@ -81,16 +80,16 @@
           <a href="#">Vật liệu tiêu hao</a>
           <ul class="dropdown_1lan">
             <li><a href="#">Nhựa & cao su</a></li>
-            <li><a href="/HTML/VatLieuCamMau.html">Vật liệu cầm máu</a></li>
-            <li><a href="/HTML/KimLoai.html">Kim loại</a></li>
-            <li><a href="/HTML/Giay.html">Giấy</a></li>
-            <li><a href="/HTML/PhuVuXetNghiem.html">Phục vụ xét nghiệm</a></li>
+            <li><a href="/VatLieuCamMau.html">Vật liệu cầm máu</a></li>
+            <li><a href="/KimLoai.html">Kim loại</a></li>
+            <li><a href="/Giay.html">Giấy</a></li>
+            <li><a href="/PhuVuXetNghiem.html">Phục vụ xét nghiệm</a></li>
             <li><a href="#">Nội thất y tế</a></li>
             <li><a href="#">Inox</a></li>
           </ul>
         </li>
-        <li><a href="/HTML/DungCuThamKham.html">Dụng cụ thăm khám</a></li>
-        <li><a href="/HTML/DungCuPhauThuat.html">Dụng cụ phẫu thuật</a></li>
+        <li><a href="/DungCuThamKham.html">Dụng cụ thăm khám</a></li>
+        <li><a href="/DungCuPhauThuat.html">Dụng cụ phẫu thuật</a></li>
         <li><a href="#">Dụng cụ nội soi</a></li>
       </ul>
     </div>
@@ -99,7 +98,7 @@
   <!-- Nội dung trang Sản phẩm -->
   <section class="products">
     <div class="container">
-      <h2>Tất cả sản phẩm dụng cụ phẫu thuật</h2>
+      <h2>Tất cả sản phẩm phục vụ xét nghiệm</h2>
       <div class="product-list" id="productList"></div>
     </div>
   </section>
@@ -126,21 +125,16 @@
   <footer>
     <div class="container">
       <p>&copy; 2025 Vật Tư Y Tế MQ. All rights reserved.</p>
-      <div class="sitemap"><a href="/HTML/SiteMap.html">SiteMap</a></div>
+      <div class="sitemap"><a href="/SiteMap.html">SiteMap</a></div>
     </div>
   </footer>
 
   <script>
     // Dữ liệu sản phẩm
     const products = [
-      { id:1, name:'Dao Phẫu Thuật', description:'Dùng để phẫu thuật.', price:500000, img:'/IMG/daophauthuat.png', material:'Thép không gỉ', manufacturer:'Y Khoa Hà Nội' },
-      { id:3, name:'Kim Phẫu Thuật', description:'Khâu vết thương.', price:250000, img:'/IMG/kimphauthuat.png', material:'Inox y tế', manufacturer:'BioCare' },
-  { id: 7, name: 'Ống Nhòm Y Tế',description: 'Giúp nhìn rõ hơn.',price: 800000,  img: '/IMG/ongnhom.png',material: 'Hợp kim nhôm', manufacturer: 'VisionMed' },
-  { id: 4, name: 'Kẹp Phẫu Thuật', description: 'Dùng để giữ mô hoặc dụng cụ trong quá trình mổ.', price: 300000, img: '/IMG/kepphauthuat.png', material: 'Thép không gỉ', manufacturer: 'Meditech' },
-  { id: 5, name: 'Dao Cắt Mô', description: 'Dụng cụ cắt chính xác mô mềm.',price: 450000, img: '/IMG/daocatmo.png', material: 'Thép y tế', manufacturer: 'Vinamed' },
-  { id: 6, name: 'Kéo Y Tế', description: 'Cắt băng gạc và mô.', price: 200000, img: '/IMG/keoyte.png', material: 'Thép không gỉ', manufacturer: 'Y tế Đông Á' },
-  { id: 7, name: 'Bấm Kẹp Máu', description: 'Dùng để cầm máu trong phẫu thuật.', price: 350000, img: '/IMG/bamkepmau.png', material: 'Inox', manufacturer: 'HospiTech' },
-  { id: 8, name: 'Bộ Dụng Cụ Tiểu Phẫu', description: 'Gồm nhiều dụng cụ kim loại dùng trong tiểu phẫu.', price: 1500000, img: '/IMG/bodungcutieuphau.png', material: 'Hợp kim y tế', manufacturer: 'Y Khoa Nam Dương' }
+    { id: 7, name: 'Ống Nhòm Y Tế',description: 'Giúp nhìn rõ hơn.',price: 800000,  img: '/IMG/ongnhom.png',material: 'Hợp kim nhôm',manufacturer: 'VisionMed' },
+    { id: 5, name: 'Kính Hiển Vi',description: 'Phóng đại gấp nhiều lần để xem những thứ siêu nhỏ bé.', price: 1200000, img: '/IMG/kinhhienvi.png',material: 'Thủy tinh quang học', manufacturer: 'OptiGlobe Co.' },
+  
     ];
     let cart = JSON.parse(localStorage.getItem('cart')||'[]');
 

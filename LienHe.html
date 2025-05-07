@@ -4,8 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Giới thiệu - Vật tư y tế</title>
-    <link rel="stylesheet" href="/CSS/gioiThieu.css">
+    <title>Liên hệ - Vật tư y tế</title>
+
+    <link rel="stylesheet" href="../CSS/lienHe.css">
 </head>
 
 <body>
@@ -16,11 +17,11 @@
         <nav class="nav1">
             <ul>
                 <li><a href="/index.html">Trang chủ</a></li>
-                <li><a href="../HTML/SanPham.html">Sản phẩm</a></li>
-                <li><a href="../HTML/GioiThieu.html">Giới thiệu</a></li>
-                <li><a href="../HTML/LienHe.html">Liên hệ</a></li>
-                <li><a href="../HTML/shop.html">Giỏ hàng</a></li>
-                <li><a href="../HTML/TaoHoaDon.html">Hóa đơn</a></li>
+                <li><a href="/SanPham.html">Sản phẩm</a></li>
+                <li><a href="/GioiThieu.html">Giới thiệu</a></li>
+                <li><a href="/LienHe.html">Liên hệ</a></li>
+                <li><a href="/shop.html">Giỏ hàng</a></li>
+                <li><a href="/TaoHoaDon.html">Hóa đơn</a></li>
             </ul>
         </nav>
 
@@ -34,8 +35,8 @@
 
         <!-- Login/Signup -->
         <div class="login-signup">
-            <span><a href="login.html">Đăng nhập</a></span>
-            <span><a href="register.html">Đăng ký</a></span>
+            <span><a href="/login.html">Đăng nhập</a></span>
+            <span><a href="/register.html">Đăng ký</a></span>
         </div>
 
         <!-- User Info -->
@@ -44,19 +45,32 @@
             <button id="logout-btn">Đăng xuất</button>
         </div>
     </header>
-    <section class="about">
+
+    <section class="contact">
         <div class="container">
-            <h2>Giới thiệu về chúng tôi</h2>
-            <p>Với nhiều năm kinh nghiệm trong lĩnh vực vật tư y tế, chúng tôi tự hào cung cấp các sản phẩm chất lượng cao, uy tín và đảm bảo an toàn cho bệnh viện, phòng khám cũng như người tiêu dùng.</p>
-            <!-- Thêm hình ảnh hoặc thông tin chi tiết khác -->
-             <p>Thành viên thực hiện : Quách Tấn Minh - 23717961 </p>
+            <h2>Liên hệ với chúng tôi</h2>
+            <form action="#" method="post">
+                <div class="form-group">
+                    <label for="name">Họ và tên</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="message">Nội dung</label>
+                    <textarea id="message" name="message" rows="5" required></textarea>
+                </div>
+                <button type="submit" class="btn">Gửi</button>
+            </form>
         </div>
     </section>
 
     <footer>
         <div class="container">
             <p>&copy; 2025 Vật Tư Y Tế. All rights reserved.</p>
-            <div class="sitemap"><a href="/HTML/SiteMap.html">SiteMap</a></div>
+            <div class="sitemap"><a href="/SiteMap.html">SiteMap</a></div>
         </div>
     </footer>
     <script>

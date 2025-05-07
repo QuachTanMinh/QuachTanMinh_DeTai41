@@ -19,11 +19,11 @@
         <nav class="nav1">
             <ul>
                 <li><a href="/index.html">Trang chủ</a></li>
-                <li><a href="../HTML/SanPham.html">Sản phẩm</a></li>
-                <li><a href="../HTML/GioiThieu.html">Giới thiệu</a></li>
-                <li><a href="../HTML/LienHe.html">Liên hệ</a></li>
-                <li><a href="../HTML/shop.html">Giỏ hàng</a></li>
-                <li><a href="../HTML/TaoHoaDon.html">Hóa đơn</a></li>
+                <li><a href="/SanPham.html">Sản phẩm</a></li>
+                <li><a href="/GioiThieu.html">Giới thiệu</a></li>
+                <li><a href="/LienHe.html">Liên hệ</a></li>
+                <li><a href="/shop.html">Giỏ hàng</a></li>
+                <li><a href="/TaoHoaDon.html">Hóa đơn</a></li>
             </ul>
         </nav>
 
@@ -37,8 +37,8 @@
 
         <!-- Login/Signup -->
         <div class="login-signup">
-            <span><a href="login.html">Đăng nhập</a></span>
-            <span><a href="register.html">Đăng ký</a></span>
+            <span><a href="/login.html">Đăng nhập</a></span>
+            <span><a href="/register.html">Đăng ký</a></span>
         </div>
 
         <!-- User Info -->
@@ -60,18 +60,12 @@
     <!-- Footer -->
     <footer class="bg-dark text-white text-center py-4 mt-5">
         <p>&copy; 2025 MQ Medical. All rights reserved.</p>
-        <div class="sitemap"><a href="/HTML/SiteMap.html">SiteMap</a></div>
+        <div class="sitemap"><a href="/SiteMap.html">SiteMap</a></div>
     </footer>
 
     
     <script>
-         // Chuyển hướng nếu chưa đăng nhập
-         const loggedInUser = localStorage.getItem('loggedInUser');
-        if (!loggedInUser) {
-          alert('Vui lòng đăng nhập để truy cập trang này!');
-          window.location.href = 'login.html';
-        }
-      
+    
         // Hiển thị thông tin người dùng
         const userInfo = document.getElementById('user-info');
         const loginSignup = document.querySelector('.login-signup');
