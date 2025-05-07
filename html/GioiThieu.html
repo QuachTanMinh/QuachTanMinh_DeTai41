@@ -4,9 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Liên hệ - Vật tư y tế</title>
-
-    <link rel="stylesheet" href="../CSS/lienHe.css">
+    <title>Giới thiệu - Vật tư y tế</title>
+    <link rel="stylesheet" href="/CSS/gioiThieu.css">
 </head>
 
 <body>
@@ -45,25 +44,12 @@
             <button id="logout-btn">Đăng xuất</button>
         </div>
     </header>
-
-    <section class="contact">
+    <section class="about">
         <div class="container">
-            <h2>Liên hệ với chúng tôi</h2>
-            <form action="#" method="post">
-                <div class="form-group">
-                    <label for="name">Họ và tên</label>
-                    <input type="text" id="name" name="name" required>
-                </div>
-                <div class="form-group">
-                    <label for="email">Email</label>
-                    <input type="email" id="email" name="email" required>
-                </div>
-                <div class="form-group">
-                    <label for="message">Nội dung</label>
-                    <textarea id="message" name="message" rows="5" required></textarea>
-                </div>
-                <button type="submit" class="btn">Gửi</button>
-            </form>
+            <h2>Giới thiệu về chúng tôi</h2>
+            <p>Với nhiều năm kinh nghiệm trong lĩnh vực vật tư y tế, chúng tôi tự hào cung cấp các sản phẩm chất lượng cao, uy tín và đảm bảo an toàn cho bệnh viện, phòng khám cũng như người tiêu dùng.</p>
+            <!-- Thêm hình ảnh hoặc thông tin chi tiết khác -->
+             <p>Thành viên thực hiện : Quách Tấn Minh - 23717961 </p>
         </div>
     </section>
 
@@ -76,10 +62,8 @@
     <script>
         // Chuyển hướng nếu chưa đăng nhập
         const loggedInUser = localStorage.getItem('loggedInUser');
-        if (!loggedInUser) {
-          alert('Vui lòng đăng nhập để truy cập trang này!');
-          window.location.href = 'login.html';
-        }
+        
+        
       
         // Hiển thị thông tin người dùng
         const userInfo = document.getElementById('user-info');

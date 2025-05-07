@@ -99,10 +99,7 @@
     document.addEventListener('DOMContentLoaded', () => {
       // 1. Kiểm tra & hiển thị user
       const user = localStorage.getItem('loggedInUser');
-      if (!user) {
-        alert('Vui lòng đăng nhập để truy cập trang này!');
-        return window.location = 'login.html';
-      }
+     
       document.getElementById('greeting').textContent = `Xin chào, ${user}`;
       document.getElementById('user-info').style.display = 'flex';
       document.querySelector('.login-signup').style.display = 'none';
