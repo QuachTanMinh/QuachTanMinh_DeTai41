@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Đăng nhập - MQ Medical</title>
+  <link rel="stylesheet" href="/CSS/auth.css" />
+</head>
+<body>
+  <div class="auth-container">
+    <h2>Đăng nhập</h2>
+    <form id="login-form">
+      <input type="text" id="login-username" placeholder="Tên đăng nhập" required />
+      <input type="password" id="login-password" placeholder="Mật khẩu" required />
+      <button type="submit">Đăng nhập</button>
+    </form>
+    <p>Chưa có tài khoản? <a href="register.html">Đăng ký</a></p>
+  </div>
+
+  <script>
+    // 1) Nếu đã đăng nhập rồi, tránh hiển thị lại form
+    if (localStorage.getItem('loggedInUser')) {
+      window.location.href = 'index.html';
+    }
+
+    document.getElementById('login-form').addEventListener('submit', function (e) {
+      e.preventDefault();
+
+      const username = document.getElementById('login-username').value.trim();
+      const password = document.getElementById('login-password').value;
+
+      // 2) Lấy danh sách user đã đăng ký
+      const registered = JSON.parse(localStorage.getItem('registeredUsers') || '[]');
+
+      // 3) Tìm user theo username
+      const user = registered.find(u => u.username === username);
+
+      if (!user) {
+        alert('Tên đăng nhập không tồn tại. Vui lòng kiểm tra lại hoặc đăng ký.');
+        return;
+      }
+      if (user.password !== password) {
+        alert('Mật khẩu không đúng. Vui lòng thử lại.');
+        return;
+      }
+
+      // 4) Đăng nhập thành công
+      localStorage.setItem('loggedInUser', username);
+      alert('Đăng nhập thành công!');
+      window.location.href = 'index.html';
+    });
+  </script>
+  <script src="/JS/auth.js"></script>
+</body>
+</html>

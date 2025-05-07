@@ -1,0 +1,300 @@
+/* Reset cơ bản */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+
+/* Container chung */
+
+html,
+body {
+    height: 100%;
+    width: 100%;
+}
+
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+
+/* Header */
+
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #007BFF;
+    color: #fff;
+    padding: 0 20px;
+    height: 80px;
+    position: relative;
+    z-index: 200;
+}
+
+header img {
+    border-radius: 10px;
+    height: 60px;
+    width: 80px;
+}
+
+header h1 {
+    margin-left: 15px;
+    line-height: 1.2;
+    font-size: 1.6em;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+
+/* Navigation trên cùng (nav1) */
+
+.nav1 ul {
+    list-style: none;
+    display: flex;
+    gap: 15px;
+}
+
+.nav1 ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 5px 8px;
+    border-radius: 4px;
+    transition: background 0.3s, color 0.3s;
+}
+
+.nav1 ul li a:hover {
+    background-color: #fff;
+    color: #007BFF;
+}
+
+
+/* Search form */
+
+.timkiem {
+    display: flex;
+    align-items: center;
+    width: 250px;
+}
+
+.timkiem input {
+    flex: 1;
+    padding: 6px 10px;
+    border-radius: 4px;
+    border: 2px solid #0056b3;
+}
+
+.timkiem button {
+    padding: 6px 12px;
+    margin-left: 5px;
+    border-radius: 4px;
+    background-color: #0056b3;
+    border: none;
+    color: #fff;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.timkiem button:hover {
+    background-color: #fff;
+    color: #0056b3;
+}
+
+
+/* Login/Signup & User Info */
+
+.login-signup,
+.user-info {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.login-signup span,
+.user-info button {
+    padding: 6px 14px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background 0.3s, color 0.3s;
+}
+
+.login-signup span a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: bold;
+}
+
+.login-signup span {
+    background-color: #28a745;
+}
+
+.login-signup span:hover {
+    background-color: #fff;
+}
+
+.login-signup span:hover a {
+    color: #28a745;
+}
+
+.user-info span {
+    font-weight: bold;
+    color: #fff;
+}
+
+#logout-btn {
+    background-color: #dc3545;
+    border: none;
+    color: #fff;
+}
+
+#logout-btn:hover {
+    background-color: #fff;
+    color: #dc3545;
+}
+  
+  /* ======================
+     Product Cards
+     ====================== */
+  #productList .card {
+    border: none;
+    border-radius: 8px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  
+  #productList .card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+  
+  #productList .card-title {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #007bff;
+  }
+  
+  #productList .card-text {
+    color: #555;
+  }
+  
+  #productList .btn-success {
+    background-color: #28a745;
+    border-color: #28a745;
+  }
+  
+  #productList .btn-success:hover {
+    background-color: #218838;
+    border-color: #1e7e34;
+  }
+  
+  /* ======================
+     Cart List
+     ====================== */
+  ul#cartList {
+    max-width: 500px;
+    margin-top: 1rem;
+  }
+  
+  ul#cartList .list-group-item {
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    margin-bottom: 0.5rem;
+    transition: background-color 0.2s ease;
+  }
+  
+  ul#cartList .list-group-item:hover {
+    background-color: #f8f9fa;
+  }
+  
+  ul#cartList .btn-danger {
+    font-size: 0.8rem;
+    padding: 4px 8px;
+  }
+  
+  /* ======================
+     Buttons
+     ====================== */
+  a.btn-success {
+    padding: 10px 20px;
+    border-radius: 4px;
+    font-size: 1rem;
+  }
+  
+  a.btn-success:hover {
+    text-decoration: none;
+  }
+  
+  /* ======================
+     Footer
+     ====================== */
+  footer {
+    font-size: 0.9rem;
+    letter-spacing: 0.5px;
+  }
+  
+  /* ======================
+     Responsive Adjustments
+     ====================== */
+  @media (max-width: 768px) {
+    header .container {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+    .nav1 {
+      margin-top: 12px;
+    }
+  }
+  
+  @media (max-width: 576px) {
+    #productList .col-md-4 {
+      flex: 0 0 100%;
+      max-width: 100%;
+    }
+    h2.mb-4 {
+      font-size: 1.5rem;
+    }
+  }
+
+  /* Style cho footer sitemap link */
+footer {
+  position: relative;
+}
+
+footer .sitemap {
+  position: absolute;
+  top: 50%;
+  right: 20px;
+  transform: translateY(-50%);
+}
+
+footer .sitemap a {
+  display: inline-block;
+  padding: 6px 12px;
+  background-color: #28a745;
+  color: #fff;
+  border-radius: 4px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+footer .sitemap a:hover {
+  background-color: #218838;
+  transform: translateY(-2px);
+}
+
+/* Responsive: chuyển sitemap xuống dưới trên màn hình nhỏ */
+@media (max-width: 768px) {
+  footer .sitemap {
+    position: static;
+    transform: none;
+    margin-top: 15px;
+    text-align: center;
+  }
+}
+  

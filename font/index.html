@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Trang chủ - Vật tư y tế</title>
+    <link rel="stylesheet" href="/CSS/trangChu.css">
+</head>
+
+<body>
+    <!-- Header -->
+    <header>
+        <img src="/IMG/ChatGPT Image 09_40_01 5 thg 4, 2025.png" alt="Logo" height="80px" width="100px">
+        <h1>Vật Tư <br> Y Tế MQ</h1>
+        <nav class="nav1">
+            <ul>
+                <li><a href="/index.html">Trang chủ</a></li>
+                <li><a href="../HTML/SanPham.html">Sản phẩm</a></li>
+                <li><a href="../HTML/GioiThieu.html">Giới thiệu</a></li>
+                <li><a href="../HTML/LienHe.html">Liên hệ</a></li>
+                <li><a href="../HTML/shop.html">Giỏ hàng</a></li>
+                <li><a href="../HTML/TaoHoaDon.html">Hóa đơn</a></li>
+            </ul>
+        </nav>
+
+        <!-- Search -->
+        <div class="timkiem">
+            <form class="search-form" action="#" method="get">
+                <input type="search" name="timkiem" id="timkiem" placeholder="Nhập từ khóa tìm kiếm...">
+                <button type="submit">Tìm</button>
+            </form>
+        </div>
+
+        <!-- Login/Signup -->
+        <div class="login-signup">
+            <span><a href="login.html">Đăng nhập</a></span>
+            <span><a href="register.html">Đăng ký</a></span>
+        </div>
+
+        <!-- User Info -->
+        <div class="user-info" id="user-info" style="display: none;">
+            <span id="greeting"></span>
+            <button id="logout-btn">Đăng xuất</button>
+        </div>
+    </header>
+
+    <!-- Under Header - Menu -->
+    <nav class="under_header">
+        <div class="menu">
+            <ul>
+                <li>
+                    <a href="#">Vật liệu tiêu hao dùng 1 lần</a>
+                    <ul class="dropdown_1lan">
+                        <li><a href="#">Nhựa & cao su</a></li>
+                        <li><a href="/HTML/VatLieuCamMau.html">Vật liệu cầm máu</a></li>
+                        <li><a href="/HTML/KimLoai.html">Kim loại</a></li>
+                        <li><a href="/HTML/Giay.html">Giấy</a></li>
+                        <li><a href="/HTML/PhuVuXetNghiem.html">Phục vụ xét nghiệm</a></li>
+                        <li><a href="#">Nội thất y tế</a></li>
+                        <li><a href="#">Inox</a></li>
+                    </ul>
+                </li>
+                <li><a href="/HTML/DungCuThamKham.html">Dụng cụ thăm khám</a></li>
+                <li><a href="/HTML/DungCuPhauThuat.html">Dụng cụ phẫu thuật</a></li>
+                <li><a href="#">Dụng cụ nội soi</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h2><b>Chào mừng đến với cửa hàng vật tư y tế</b></h2>
+            <p><b>Chúng tôi cung cấp các sản phẩm vật tư y tế chất lượng cao cho bệnh viện, phòng khám và người tiêu dùng.</b></p>
+            <a href="SanPham.html" class="btn">Xem Sản Phẩm</a>
+        </div>
+    </section>
+
+    <!-- Featured Products -->
+    <section class="featured-products">
+      <div class="container">
+        <h2>Sản phẩm nổi bật</h2>
+        <div class="product-list">
+          <!-- ======= Sản phẩm cũ ======= -->
+          <div class="product-item"
+               data-title="Kim Tiêm"
+               data-material="Nhựa y tế"
+               data-manufacturer="Công ty TNHH Thiết Bị Y Tế Việt"
+               data-desc="Kim tiêm chất lượng cao, an toàn.">
+            <img src="../IMG/kimtiem.png" alt="Kim tiêm">
+            <h3>Kim Tiêm</h3>
+            <p>Kim tiêm chất lượng cao, an toàn.</p>
+            <a href="#" class="btn">Chi tiết</a>
+          </div>
+    
+          <div class="product-item"
+               data-title="Dao Phẫu Thuật"
+               data-material="Thép không gỉ"
+               data-manufacturer="Y Khoa Hà Nội"
+               data-desc="Dao phẫu thuật sắc bén, chuẩn y khoa.">
+            <img src="../IMG/daophauthuat.png" alt="Dao phẫu thuật">
+            <h3>Dao Phẫu Thuật</h3>
+            <p>Dao phẫu thuật sắc bén, chuẩn y khoa.</p>
+            <a href="#" class="btn">Chi tiết</a>
+          </div>
+    
+          <!-- ======= Thêm 2 sản phẩm mới ======= -->
+          <div class="product-item"
+               data-title="Máy Đo Nhịp Tim"
+               data-material="Nhựa ABS"
+               data-manufacturer="HeartTech Co."
+               data-desc="Máy đo nhịp tim cầm tay, kết quả nhanh chóng.">
+            <img src="/IMG/maydonhiptim.png" alt="Máy Đo Nhịp Tim">
+            <h3>Máy Đo Nhịp Tim</h3>
+            <p>Máy đo nhịp tim cầm tay, kết quả nhanh chóng.</p>
+            <a href="#" class="btn">Chi tiết</a>
+          </div>
+    
+          <div class="product-item"
+               data-title="Băng Y Tế"
+               data-material="Vải Cotton"
+               data-manufacturer="MedFabric Ltd."
+               data-desc="Băng cuộn mềm mại, thấm hút tốt.">
+            <img src="../IMG/bangyte.png" alt="Băng Y Tế">
+            <h3>Băng Y Tế</h3>
+            <p>Băng cuộn mềm mại, thấm hút tốt.</p>
+            <a href="#" class="btn">Chi tiết</a>
+          </div>
+
+          <div class="product-item"
+          data-title="Máy Xét Nghiệm Nhanh"
+          data-material="Kim loại, Nhựa y tế"
+          data-manufacturer="BioQuick Labs"
+          data-desc="Thiết bị xét nghiệm nhanh cho kết quả trong 5 phút.">
+       <img src="../IMG/mayxetnghiemnhanh.png" alt="Máy Xét Nghiệm Nhanh">
+       <h3>Máy Xét Nghiệm Nhanh</h3>
+       <p>Thiết bị xét nghiệm nhanh cho kết quả trong 5 phút.</p>
+       <a href="#" class="btn">Chi tiết</a>
+     </div>
+
+     <div class="product-item"
+           data-title="Nhiệt Kế Hồng Ngoại"
+           data-material="Nhựa ABS"
+           data-manufacturer="InfraMed Corp."
+           data-desc="Nhiệt kế hồng ngoại đo trán không tiếp xúc, chính xác cao.">
+        <img src="../IMG/nhietkehongngoai.png" alt="Nhiệt Kế Hồng Ngoại">
+        <h3>Nhiệt Kế Hồng Ngoại</h3>
+        <p>Nhiệt kế hồng ngoại đo trán không tiếp xúc, chính xác cao.</p>
+        <a href="#" class="btn">Chi tiết</a>
+      </div>
+
+        </div>
+      </div>
+    </section>
+  <section class="other-products">
+    <div class="container">
+      <h2>Các sản phẩm khác</h2>
+      <div id="other-product-list" class="product-list"></div>
+    </div>
+  </section>
+  
+  <!-- Product Detail Modal -->
+  <div id="product-modal" class="product-modal">
+    <div class="modal-content">
+      <span class="modal-close">&times;</span>
+      <img id="modal-img" src="" alt="Product Image">
+      <h3 id="modal-title"></h3>
+      <p><strong>Chất liệu:</strong> <span id="modal-material"></span></p>
+      <p><strong>Nhà sản xuất:</strong> <span id="modal-manufacturer"></span></p>
+      <p id="modal-desc"></p>
+    </div>
+  </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Vật Tư Y Tế MQ. All rights reserved.</p>
+        </div>
+        <div class="sitemap"><a href="/HTML/SiteMap.html">SiteMap</a></div>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        // Chuyển hướng nếu chưa đăng nhập
+        const loggedInUser = localStorage.getItem('loggedInUser');
+        if (!loggedInUser) {
+          alert('Vui lòng đăng nhập để truy cập trang này!');
+          window.location.href = 'login.html';
+        }
+      
+        // Hiển thị thông tin người dùng
+        const userInfo = document.getElementById('user-info');
+        const loginSignup = document.querySelector('.login-signup');
+        const greeting = document.getElementById('greeting');
+        const logoutBtn = document.getElementById('logout-btn');
+      
+        if (loggedInUser) {
+          greeting.textContent = `Xin chào, ${loggedInUser}`;
+          userInfo.style.display = 'flex';
+          loginSignup.style.display = 'none';
+        }
+      
+        
+        logoutBtn.addEventListener('click', function () {
+          localStorage.removeItem('loggedInUser');
+          alert('Bạn đã đăng xuất!');
+          window.location.href = 'login.html';
+        });
+      
+        // Modal elements
+        const modal = document.getElementById('product-modal');
+        const modalImg = document.getElementById('modal-img');
+        const modalTitle = document.getElementById('modal-title');
+        const modalMaterial = document.getElementById('modal-material');
+        const modalManufacturer = document.getElementById('modal-manufacturer');
+        const modalDesc = document.getElementById('modal-desc');
+        const modalClose = document.querySelector('.modal-close');
+      
+        // Xử lý khi nhấn nút "Chi tiết"
+        document.querySelectorAll('.product-item .btn').forEach(btn => {
+          btn.addEventListener('click', function (e) {
+            e.preventDefault();
+            const item = this.closest('.product-item');
+      
+            modalImg.src = item.querySelector('img').src;
+            modalTitle.textContent = item.dataset.title;
+            modalMaterial.textContent = item.dataset.material;
+            modalManufacturer.textContent = item.dataset.manufacturer;
+            modalDesc.textContent = item.dataset.desc;
+      
+            modal.style.display = 'flex';
+          });
+        });
+      
+        // Đóng modal
+        modalClose.addEventListener('click', () => modal.style.display = 'none');
+        modal.addEventListener('click', e => {
+          if (e.target === modal) modal.style.display = 'none';
+        });
+      </script>
+    <script>
+      const otherProducts = [
+        { id: 1, name: 'Khẩu trang Y tế', price: 10000, image: '../IMG/khau-trang.png' },
+        { id: 2, name: 'Găng tay khám', price: 20000, image: '../IMG/gangtay.png' },
+        { id: 3, name: 'Nhiệt kế điện tử', price: 150000, image: '../IMG/nhietke.png' },
+        { id: 4, name: 'Dao mổ',             price: 120000, image: '../IMG/daomo.png' },
+    { id: 5, name: 'Máy đo huyết áp cổ tay', price: 500000, image: '../IMG/maydohuyetapcotay.png' },
+    { id: 6, name: 'Ống nghe y tế',      price: 150000, image: '../IMG/ongnghe.png' }
+      ];
+    
+      function renderOtherProducts() {
+        const list = document.getElementById('other-product-list');
+        otherProducts.forEach(p => {
+          const div = document.createElement('div');
+          div.className = 'product-item';
+          div.innerHTML = `
+            <img src="${p.image}" alt="${p.name}">
+            <h3>${p.name}</h3>
+            <p>Giá: ${p.price.toLocaleString()}đ</p>
+            <button class="btn" onclick="addToCartHome(${p.id})">Thêm vào giỏ</button>
+          `;
+          list.appendChild(div);
+        });
+      }
+    
+      function addToCartHome(productId) {
+        const product = otherProducts.find(p => p.id === productId);
+        let cart = JSON.parse(localStorage.getItem('cart')) || [];
+        const index = cart.findIndex(item => item.id === productId);
+        if (index !== -1) {
+          cart[index].quantity += 1;
+        } else {
+          cart.push({ ...product, quantity: 1 });
+        }
+        localStorage.setItem('cart', JSON.stringify(cart));
+        alert('Đã thêm vào giỏ!');
+      }
+    
+      // Gọi hàm khi load
+      document.addEventListener('DOMContentLoaded', renderOtherProducts);
+    </script>
+    <script src="/JS/auth.js"></script>
+</body>
+
+</html>

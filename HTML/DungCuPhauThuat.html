@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sản phẩm - Vật tư y tế</title>
+  <link rel="stylesheet" href="/CSS/sanPham.css">
+  <style>
+    /* CSS cho modal */
+    .product-modal {
+      position: fixed; top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.6);
+      display: none;
+      align-items: center; justify-content: center;
+      z-index: 1000;
+    }
+    .modal-content {
+      background: #fff;
+      padding: 20px;
+      border-radius: 6px;
+      max-width: 400px; width: 90%;
+      position: relative;
+      text-align: left;
+    }
+    .modal-close {
+      position: absolute; top: 10px; right: 15px;
+      font-size: 1.5rem; cursor: pointer;
+    }
+    .modal-content img {
+      max-width: 100%; margin-bottom: 10px;
+    }
+    .modal-content p {
+      margin: 5px 0;
+    }
+    .modal-content button {
+      margin-top: 10px;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Header chung -->
+  <header>
+    <div class="logo-title">
+      <img src="/IMG/ChatGPT Image 09_40_01 5 thg 4, 2025.png" alt="Logo" height="80" width="100">
+      <h1>Vật tư y tế<br>MQ</h1>
+    </div>
+    <nav class="nav1">
+      <ul>
+        <li><a href="/index.html">Trang chủ</a></li>
+        <li><a class="active" href="SanPham.html">Sản phẩm</a></li>
+        <li><a href="GioiThieu.html">Giới thiệu</a></li>
+        <li><a href="LienHe.html">Liên hệ</a></li>
+        <li><a href="shop.html">Giỏ hàng</a></li>
+        <li><a href="TaoHoaDon.html">Hóa đơn</a></li>
+        <li><a href="auth.html">Xác thực</a></li>
+      </ul>
+    </nav>
+    <div class="header-right">
+      <div class="timkiem">
+        <form><input type="search" placeholder="Nhập từ khóa tìm kiếm..."><button>Tìm</button></form>
+      </div>
+      <div class="login-signup">
+        <span><a href="login.html">Đăng nhập</a></span>
+        <span><a href="register.html">Đăng ký</a></span>
+      </div>
+      <div class="user-info" id="user-info" style="display:none;">
+        <span id="greeting"></span>
+        <button id="logout-btn">Đăng xuất</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Menu con chung -->
+  <nav class="under_header">
+    <div class="menu">
+      <ul>
+        <li>
+          <a href="#">Vật liệu tiêu hao</a>
+          <ul class="dropdown_1lan">
+            <li><a href="#">Nhựa & cao su</a></li>
+            <li><a href="/HTML/VatLieuCamMau.html">Vật liệu cầm máu</a></li>
+            <li><a href="/HTML/KimLoai.html">Kim loại</a></li>
+            <li><a href="/HTML/Giay.html">Giấy</a></li>
+            <li><a href="/HTML/PhuVuXetNghiem.html">Phục vụ xét nghiệm</a></li>
+            <li><a href="#">Nội thất y tế</a></li>
+            <li><a href="#">Inox</a></li>
+          </ul>
+        </li>
+        <li><a href="/HTML/DungCuThamKham.html">Dụng cụ thăm khám</a></li>
+        <li><a href="/HTML/DungCuPhauThuat.html">Dụng cụ phẫu thuật</a></li>
+        <li><a href="#">Dụng cụ nội soi</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Nội dung trang Sản phẩm -->
+  <section class="products">
+    <div class="container">
+      <h2>Tất cả sản phẩm dụng cụ phẫu thuật</h2>
+      <div class="product-list" id="productList"></div>
+    </div>
+  </section>
+
+  <!-- Modal chi tiết -->
+  <div id="product-modal" class="product-modal">
+    <div class="modal-content">
+      <span class="modal-close">&times;</span>
+      <img id="modal-img" src="" alt="">
+      <h3 id="modal-name"></h3>
+      <p><strong>Mã SP:</strong> <span id="modal-id"></span></p>
+      <p><strong>Chất liệu:</strong> <span id="modal-material"></span></p>
+      <p><strong>Nhà sản xuất:</strong> <span id="modal-manufacturer"></span></p>
+      <p id="modal-desc"></p>
+      <p><strong>Giá:</strong> <span id="modal-price"></span> đ</p>
+      <button id="modal-add" class="btn btn-success w-100 mt-3">
+        <i class="bi bi-cart-plus-fill"></i> Thêm vào giỏ
+      </button>
+
+    </div>
+  </div>
+
+  <!-- Footer chung -->
+  <footer>
+    <div class="container">
+      <p>&copy; 2025 Vật Tư Y Tế MQ. All rights reserved.</p>
+      <div class="sitemap"><a href="/HTML/SiteMap.html">SiteMap</a></div>
+    </div>
+  </footer>
+
+  <script>
+    // Dữ liệu sản phẩm
+    const products = [
+      { id:1, name:'Dao Phẫu Thuật', description:'Dùng để phẫu thuật.', price:500000, img:'/IMG/daophauthuat.png', material:'Thép không gỉ', manufacturer:'Y Khoa Hà Nội' },
+      { id:3, name:'Kim Phẫu Thuật', description:'Khâu vết thương.', price:250000, img:'/IMG/kimphauthuat.png', material:'Inox y tế', manufacturer:'BioCare' },
+  { id: 7, name: 'Ống Nhòm Y Tế',description: 'Giúp nhìn rõ hơn.',price: 800000,  img: '/IMG/ongnhom.png',material: 'Hợp kim nhôm', manufacturer: 'VisionMed' },
+  { id: 4, name: 'Kẹp Phẫu Thuật', description: 'Dùng để giữ mô hoặc dụng cụ trong quá trình mổ.', price: 300000, img: '/IMG/kepphauthuat.png', material: 'Thép không gỉ', manufacturer: 'Meditech' },
+  { id: 5, name: 'Dao Cắt Mô', description: 'Dụng cụ cắt chính xác mô mềm.',price: 450000, img: '/IMG/daocatmo.png', material: 'Thép y tế', manufacturer: 'Vinamed' },
+  { id: 6, name: 'Kéo Y Tế', description: 'Cắt băng gạc và mô.', price: 200000, img: '/IMG/keoyte.png', material: 'Thép không gỉ', manufacturer: 'Y tế Đông Á' },
+  { id: 7, name: 'Bấm Kẹp Máu', description: 'Dùng để cầm máu trong phẫu thuật.', price: 350000, img: '/IMG/bamkepmau.png', material: 'Inox', manufacturer: 'HospiTech' },
+  { id: 8, name: 'Bộ Dụng Cụ Tiểu Phẫu', description: 'Gồm nhiều dụng cụ kim loại dùng trong tiểu phẫu.', price: 1500000, img: '/IMG/bodungcutieuphau.png', material: 'Hợp kim y tế', manufacturer: 'Y Khoa Nam Dương' }
+    ];
+    let cart = JSON.parse(localStorage.getItem('cart')||'[]');
+
+    // Render
+    function renderProducts(){
+      const list = document.getElementById('productList');
+      list.innerHTML = '';
+      products.forEach(p=>{
+        const div = document.createElement('div');
+        div.className = 'product-item';
+        div.dataset.id = p.id;
+        div.dataset.name = p.name;
+        div.dataset.desc = p.description;
+        div.dataset.material = p.material;
+        div.dataset.manufacturer = p.manufacturer;
+        div.dataset.price = p.price;
+        div.innerHTML = `
+          <img src="${p.img}" alt="${p.name}">
+          <h3>${p.name}</h3>
+          <p>${p.description}</p>
+          <p class="price">${p.price.toLocaleString()} đ</p>
+          <div class="btn-group">
+            <button class="btn detail">Chi tiết</button>
+            <button class="btn add">Thêm vào giỏ</button>
+          </div>
+        `;
+        list.appendChild(div);
+      });
+    }
+
+    // Mở modal
+    function openModal(item){
+      document.getElementById('modal-img').src = item.querySelector('img').src;
+      document.getElementById('modal-name').textContent = item.dataset.name;
+      document.getElementById('modal-id').textContent = item.dataset.id;
+      document.getElementById('modal-desc').textContent = item.dataset.desc;
+      document.getElementById('modal-material').textContent = item.dataset.material;
+      document.getElementById('modal-manufacturer').textContent = item.dataset.manufacturer;
+      document.getElementById('modal-price').textContent = Number(item.dataset.price).toLocaleString();
+      document.getElementById('modal-add').onclick = ()=> addToCart(+item.dataset.id);
+      document.getElementById('product-modal').style.display = 'flex';
+    }
+
+    // Thêm vào giỏ
+    function addToCart(id){
+      const p = products.find(x=>x.id===id);
+      cart.push(p);
+      localStorage.setItem('cart', JSON.stringify(cart));
+      alert(`${p.name} đã được thêm vào giỏ!`);
+    }
+
+    // Đóng modal
+    document.querySelector('.modal-close').onclick = ()=> {
+      document.getElementById('product-modal').style.display = 'none';
+    };
+
+    // Bắt event nút
+    document.addEventListener('click', e=>{
+      if(e.target.matches('.detail')){
+        openModal(e.target.closest('.product-item'));
+      }
+      if(e.target.matches('.add') && !e.target.matches('.detail')){
+        addToCart(+e.target.closest('.product-item').dataset.id);
+      }
+    });
+
+    // Đăng xuất & hiển thị user
+    const user = localStorage.getItem('loggedInUser');
+    if(user){
+      document.getElementById('greeting').textContent = `Xin chào, ${user}`;
+      document.getElementById('user-info').style.display='flex';
+      document.querySelector('.login-signup').style.display='none';
+      document.getElementById('logout-btn').onclick=()=>{
+        localStorage.removeItem('loggedInUser');
+        window.location='login.html';
+      };
+    }
+
+    // Load
+    window.onload = renderProducts;
+  </script>
+  <script src="/JS/auth.js"></script>
+</body>
+</html>

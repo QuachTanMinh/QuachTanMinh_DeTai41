@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Hóa đơn - MQ Medical</title>
+  <!-- CSS chung -->
+  <link rel="stylesheet" href="/CSS/bootstrap.css" />
+  <link rel="stylesheet" href="/CSS/trangChu.css" />
+  <link rel="stylesheet" href="/CSS/taoHoaDon.css" />
+</head>
+<body>
+  <!-- Header & Nav -->
+  <header>
+    <div class="logo-title">
+      <img src="/IMG/ChatGPT Image 09_40_01 5 thg 4, 2025.png" alt="Logo" height="60" width="80">
+      <h1>Vật Tư<br>Y Tế MQ</h1>
+    </div>
+    <nav class="nav1">
+      <ul>
+        <li><a href="/index.html">Trang chủ</a></li>
+        <li><a href="SanPham.html">Sản phẩm</a></li>
+        <li><a href="GioiThieu.html">Giới thiệu</a></li>
+        <li><a href="LienHe.html">Liên hệ</a></li>
+        <li><a href="shop.html">Giỏ hàng</a></li>
+        <li><a class="active" href="TaoHoaDon.html">Hóa đơn</a></li>
+      </ul>
+    </nav>
+    <div class="timkiem">
+      <form>
+        <input type="search" placeholder="Nhập từ khóa tìm kiếm...">
+        <button type="submit">Tìm</button>
+      </form>
+    </div>
+    <div class="login-signup">
+      <span><a href="login.html">Đăng nhập</a></span>
+      <span><a href="register.html">Đăng ký</a></span>
+    </div>
+    <div class="user-info" id="user-info" style="display:none;">
+      <span id="greeting"></span>
+      <button id="logout-btn">Đăng xuất</button>
+    </div>
+  </header>
+
+  <!-- Main hóa đơn -->
+  <main class="container my-5">
+    <div class="card shadow-sm">
+      <div class="card-body">
+        <h2 class="card-title text-center mb-4">HÓA ĐƠN THANH TOÁN</h2>
+        <div class="d-flex justify-content-between mb-3">
+          <div>
+            <p><strong>Mã hóa đơn:</strong> <span id="orderId">HD20250421</span></p>
+            <p><strong>Ngày lập:</strong> <span id="orderDate"></span></p>
+          </div>
+          <div class="text-end">
+            <p><strong>Công ty:</strong> MQ Medical</p>
+            <p><strong>Website:</strong> www.mqmedical.vn</p>
+          </div>
+        </div>
+
+        <div class="table-responsive">
+          <table class="table table-bordered text-center mb-3">
+            <thead class="table-primary">
+              <tr>
+                <th>STT</th>
+                <th>Sản phẩm</th>
+                <th>Số lượng</th>
+                <th>Đơn giá (đ)</th>
+                <th>Thành tiền (đ)</th>
+              </tr>
+            </thead>
+            <tbody id="invoiceTable"></tbody>
+          </table>
+        </div>
+
+        <div class="text-end fw-bold fs-5">
+          Tổng cộng: <span id="totalPrice">0</span> đ
+        </div>
+
+        <div class="text-center mt-4">
+          <button id="btnDownload" class="btn btn-primary">Tải hóa đơn PDF</button>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-dark text-white text-center py-4">
+    &copy; 2025 MQ Medical. All rights reserved.
+    <div class="sitemap"><a href="/HTML/SiteMap.html">SiteMap</a></div>
+  </footer>
+
+  <!-- jsPDF Core, AutoTable & Fonts -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.25/jspdf.plugin.autotable.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.vfs_fonts.min.js"></script>
+  <script src="/JS/auth.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // 1. Kiểm tra & hiển thị user
+      const user = localStorage.getItem('loggedInUser');
+      if (!user) {
+        alert('Vui lòng đăng nhập để truy cập trang này!');
+        return window.location = 'login.html';
+      }
+      document.getElementById('greeting').textContent = `Xin chào, ${user}`;
+      document.getElementById('user-info').style.display = 'flex';
+      document.querySelector('.login-signup').style.display = 'none';
+      document.getElementById('logout-btn').onclick = () => {
+        localStorage.removeItem('loggedInUser');
+        window.location = 'login.html';
+      };
+
+      // 2. Đổ giỏ hàng + tính tổng
+      const cart = JSON.parse(localStorage.getItem('cart') || '[]');
+      const tbody = document.getElementById('invoiceTable');
+      let total = 0;
+      cart.forEach((p, i) => {
+        const qty = p.quantity || 1;
+        const itemTotal = qty * Number(p.price);
+        total += itemTotal;
+        const tr = document.createElement('tr');
+        tr.innerHTML = `
+          <td>${i+1}</td>
+          <td>${p.name}</td>
+          <td>${qty}</td>
+          <td>${Number(p.price).toLocaleString()}</td>
+          <td>${itemTotal.toLocaleString()}</td>
+        `;
+        tbody.appendChild(tr);
+      });
+      document.getElementById('orderDate').textContent = new Date().toLocaleDateString('vi-VN');
+      document.getElementById('totalPrice').textContent = total.toLocaleString();
+
+      // 3. Tạo PDF khi click
+      document.getElementById('btnDownload').addEventListener('click', () => {
+        const { jsPDF } = window.jspdf;
+        const doc = new jsPDF();
+
+        // Chọn font Unicode đã có trong vfs_fonts
+        doc.setFont('Helvetica');
+        doc.setFontSize(16);
+        doc.text('HÓA ĐƠN MQ MEDICAL', 14, 20);
+        doc.setFontSize(12);
+
+        // Dữ liệu bảng
+        const tableData = cart.map((p, i) => {
+          const qty = p.quantity || 1;
+          const it = qty * Number(p.price);
+          return [
+            i + 1,
+            p.name,
+            qty,
+            Number(p.price).toLocaleString(),
+            it.toLocaleString()
+          ];
+        });
+
+        doc.autoTable({
+          startY: 30,
+          head: [['STT','Sản phẩm','SL','Đơn giá (đ)','Thành tiền (đ)']],
+          body: tableData,
+          styles: { font: 'Helvetica' }
+        });
+
+        const finalY = doc.autoTable.previous.finalY + 10;
+        doc.text(`Tổng cộng: ${total.toLocaleString()} đ`, 14, finalY);
+
+        doc.save('HoaDon.pdf');
+        localStorage.removeItem('cart');
+      });
+    });
+  </script>
+  <script src="/JS/auth.js"></script>
+</body>
+</html>

@@ -1,0 +1,562 @@
+/* sanPham.css */
+/* Header chung */
+/* Reset cơ bản */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+
+/* Container chung */
+
+html,
+body {
+    height: 100%;
+    width: 100%;
+}
+
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+
+/* Header */
+
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #007bff;
+    padding: 10px 20px;
+    color: #fff;
+    height: auto;
+    flex-wrap: wrap;
+    z-index: 200;
+    position: relative;
+}
+
+/* Logo và tiêu đề */
+.logo-title {
+    display: flex;
+    align-items: center;
+    flex-wrap: nowrap;
+}
+
+.logo-title img {
+    border-radius: 10px;
+}
+
+.logo-title h1 {
+    font-size: 1.6rem;
+    font-weight: 600;
+    line-height: 1.2;
+    margin: 0;
+    color: #fff;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.logo-title h1 br {
+    line-height: 1.2;
+}
+
+/* Navigation */
+.nav1 ul {
+    list-style: none;
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+    margin: 0;
+    padding: 0;
+}
+
+.nav1 ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 5px 10px;
+    border-radius: 4px;
+    transition: background 0.3s, color 0.3s;
+}
+
+.nav1 ul li a:hover {
+    background-color: #fff;
+    color: #007bff;
+}
+
+/* Tìm kiếm */
+.timkiem {
+    display: flex;
+    align-items: center;
+    margin: 10px 0;
+    width: 250px;
+    max-width: 100%;
+}
+
+.timkiem input {
+    flex: 1;
+    padding: 6px 10px;
+    border-radius: 4px;
+    border: 2px solid #0056b3;
+}
+
+.timkiem button {
+    padding: 6px 12px;
+    margin-left: 5px;
+    border-radius: 4px;
+    background-color: #0056b3;
+    border: none;
+    color: #fff;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.timkiem button:hover {
+    background-color: #fff;
+    color: #0056b3;
+}
+
+/* Đăng nhập / Thông tin người dùng */
+.login-signup,
+.user-info {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 10px 0;
+    flex-wrap: wrap;
+}
+
+.login-signup span,
+.user-info button {
+    padding: 6px 14px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background 0.3s, color 0.3s;
+}
+
+.login-signup span {
+    background-color: #28a745;
+}
+
+.login-signup span a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: bold;
+}
+
+.login-signup span:hover {
+    background-color: #fff;
+}
+
+.login-signup span:hover a {
+    color: #28a745;
+}
+
+.user-info span {
+    font-weight: bold;
+    color: #fff;
+}
+
+#logout-btn {
+    background-color: #dc3545;
+    border: none;
+    color: #fff;
+}
+
+#logout-btn:hover {
+    background-color: #fff;
+    color: #dc3545;
+}
+
+/* Responsive header */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .logo-title {
+        margin-bottom: 10px;
+    }
+
+    .timkiem {
+        width: 100%;
+        margin: 10px 0;
+    }
+
+    .nav1 ul {
+        justify-content: center;
+        gap: 10px;
+        width: 100%;
+    }
+
+    .login-signup,
+    .user-info {
+        width: 100%;
+        justify-content: flex-start;
+    }
+}
+
+
+
+/* Under Header - Menu Dropdown */
+
+
+.under_header {
+  position: sticky; /* hoặc fixed */
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #555;
+  z-index: 150;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.under_header .menu ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    padding: 0;
+    margin: 0;
+}
+
+.under_header .menu ul li {
+    position: relative;
+}
+
+.under_header .menu ul li a {
+    display: block;
+    padding: 10px 16px;
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 4px;
+    transition: background 0.3s;
+}
+
+.under_header .menu ul li a:hover {
+    background-color: #444;
+}
+
+
+/* Dropdown */
+
+.dropdown_1lan {
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    min-width: 160px;
+    background: #333;
+    border: 1px solid #222;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+    z-index: 300;
+    display: flex;
+    flex-direction: column;
+}
+
+.dropdown_1lan li a {
+    color: black;
+    padding: 10px 14px;
+    display: block;
+    text-decoration: none;
+    transition: background 0.3s;
+}
+
+.dropdown_1lan li a:hover {
+    background: #444;
+}
+
+.under_header .menu ul li:hover .dropdown_1lan {
+    opacity: 1;
+    visibility: visible;
+}
+
+
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #007bff; /* xanh MQ */
+    padding: 10px 10px;
+  }
+  
+  /* Logo + tiêu đề */
+  .logo-title {
+    display: flex;
+    align-items: center;
+  }
+  
+  
+  /* Tiêu đề chính */
+  .logo-title h1 {
+    margin: 0;
+    color: #fff;
+    font-size: 1.6rem;
+    line-height: 1.2;
+    font-weight: 600;
+    position: absolute;
+    left: 120px;
+  }
+  
+  .logo-title h1 br {
+    line-height: 1.2; /* giúp khoảng cách giữa 2 dòng không bị giãn */
+  }
+  
+  /* Đảm bảo nav chính nằm gần header */
+  
+/* Container chung */
+.products {
+    padding: 40px 0;
+    background-color: #f5f7fa;
+  }
+  .products .container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  /* Tiêu đề */
+  .products h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+    color: #333;
+    font-weight: 600;
+  }
+  
+  /* Danh sách sản phẩm sử dụng grid */
+  .product-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+  }
+  
+  /* Thẻ sản phẩm */
+  .product-item {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  .product-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+  }
+  
+  .product-item img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+  }
+  
+  .product-item h3 {
+    font-size: 1.25rem;
+    color: #222;
+    margin: 15px;
+    flex-shrink: 0;
+  }
+  
+  .product-item p {
+    font-size: 0.95rem;
+    color: #555;
+    margin: 0 15px 15px;
+    flex-grow: 1;
+    line-height: 1.4;
+  }
+  
+  /* Nút Chi tiết */
+  .product-item .btn {
+    display: inline-block;
+    text-align: center;
+    padding: 10px 20px;
+    margin: 0 15px 15px;
+    border-radius: 4px;
+    background-color: #007bff;
+    color: #fff;
+    text-decoration: none;
+    font-weight: 500;
+    transition: background-color 0.2s ease;
+  }
+  .product-item .btn:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Responsive breakpoint */
+  @media (max-width: 768px) {
+    .products h2 {
+      font-size: 2rem;
+    }
+    .product-list {
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .products {
+      padding: 20px 0;
+    }
+    .product-item h3 {
+      font-size: 1.1rem;
+      margin: 10px;
+    }
+    .product-item p {
+      font-size: 0.9rem;
+      margin: 0 10px 10px;
+    }
+    .product-item .btn {
+      padding: 8px 16px;
+      margin: 0 10px 10px;
+      font-size: 0.9rem;
+    }
+  }
+  @media (max-width: 768px) {
+  header {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 10px 20px;
+  }
+
+  .nav1 ul {
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+}
+  /* Footer chung */
+footer {
+  background-color: #007bff; /* hoặc màu bạn muốn */
+  color: #fff;
+  padding: 20px 0;
+  margin-top: 40px;
+}
+
+footer .container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+footer p {
+  margin: 0;
+  font-size: 0.9rem;
+}
+
+/* Nếu muốn thêm liên kết trong footer */
+footer a {
+  color: #ffc107;
+  text-decoration: none;
+  margin: 0 8px;
+  transition: color 0.3s;
+}
+
+footer a:hover {
+  color: #fff;
+}
+
+/* Responsive cho footer */
+@media (max-width: 768px) {
+  footer .container {
+      flex-direction: column;
+      text-align: center;
+      gap: 8px;
+  }
+}
+
+   /* Thêm chút CSS cho modal */
+   .product-modal {
+    position: fixed; top:0; left:0;
+    width:100%; height:100%;
+    background:rgba(0,0,0,0.6);
+    display:none;
+    align-items:center; justify-content:center;
+    z-index:1000;
+  }
+  .modal-content {
+    background:#fff; padding:20px; border-radius:6px;
+    max-width:400px; width:90%; position:relative;
+    text-align:left;
+  }
+  .modal-close {
+    position:absolute; right:10px; top:10px;
+    font-size:1.2rem; cursor:pointer;
+  }
+  .modal-content img {
+    max-width:100%; height:auto; margin-bottom:10px;
+  }
+  .modal-content p {
+    margin:5px 0;
+  }
+  .modal-content button {
+    margin-top:10px;
+  }
+
+  /* Nút Thêm vào giỏ trong modal */
+#product-modal .modal-content #modal-add {
+  display: block;
+  width: 100%;
+  padding: 10px 0;
+  margin-top: 20px;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #fff;
+  background-color: #28a745;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  text-align: center;
+  transition: background-color 0.2s ease;
+}
+
+#product-modal .modal-content #modal-add:hover {
+  background-color: #218838;
+}
+
+/* Style cho footer sitemap link */
+footer {
+  position: relative;
+}
+
+footer .sitemap {
+  position: absolute;
+  top: 50%;
+  right: 20px;
+  transform: translateY(-50%);
+}
+
+footer .sitemap a {
+  display: inline-block;
+  padding: 6px 12px;
+  background-color: #28a745;
+  color: #fff;
+  border-radius: 4px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+footer .sitemap a:hover {
+  background-color: #218838;
+  transform: translateY(-2px);
+}
+
+/* Responsive: chuyển sitemap xuống dưới trên màn hình nhỏ */
+@media (max-width: 768px) {
+  footer .sitemap {
+    position: static;
+    transform: none;
+    margin-top: 15px;
+    text-align: center;
+  }
+}

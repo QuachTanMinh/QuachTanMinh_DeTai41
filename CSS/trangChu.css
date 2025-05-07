@@ -1,0 +1,461 @@
+/* Reset cơ bản */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+
+/* Container chung */
+
+html,
+body {
+    height: 100%;
+    width: 100%;
+}
+
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+
+/* Header */
+
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #007BFF;
+    color: #fff;
+    padding: 0 20px;
+    height: 80px;
+    position: relative;
+    z-index: 200;
+}
+
+header img {
+    border-radius: 10px;
+    height: 60px;
+    width: 80px;
+}
+
+header h1 {
+    margin-left: 15px;
+    line-height: 1.2;
+    font-size: 1.6em;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+
+/* Navigation trên cùng (nav1) */
+
+.nav1 ul {
+    list-style: none;
+    display: flex;
+    gap: 15px;
+}
+
+.nav1 ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 5px 8px;
+    border-radius: 4px;
+    transition: background 0.3s, color 0.3s;
+}
+
+.nav1 ul li a:hover {
+    background-color: #fff;
+    color: #007BFF;
+}
+
+
+/* Search form */
+
+.timkiem {
+    display: flex;
+    align-items: center;
+    width: 250px;
+}
+
+.timkiem input {
+    flex: 1;
+    padding: 6px 10px;
+    border-radius: 4px;
+    border: 2px solid #0056b3;
+}
+
+.timkiem button {
+    padding: 6px 12px;
+    margin-left: 5px;
+    border-radius: 4px;
+    background-color: #0056b3;
+    border: none;
+    color: #fff;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.timkiem button:hover {
+    background-color: #fff;
+    color: #0056b3;
+}
+
+
+/* Login/Signup & User Info */
+
+.login-signup,
+.user-info {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.login-signup span,
+.user-info button {
+    padding: 6px 14px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background 0.3s, color 0.3s;
+}
+
+.login-signup span a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: bold;
+}
+
+.login-signup span {
+    background-color: #28a745;
+}
+
+.login-signup span:hover {
+    background-color: #fff;
+}
+
+.login-signup span:hover a {
+    color: #28a745;
+}
+
+.user-info span {
+    font-weight: bold;
+    color: #fff;
+}
+
+#logout-btn {
+    background-color: #dc3545;
+    border: none;
+    color: #fff;
+}
+
+#logout-btn:hover {
+    background-color: #fff;
+    color: #dc3545;
+}
+
+
+/* Under Header - Menu Dropdown */
+
+.under_header {
+    position: sticky; /* hoặc fixed */
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #555;
+    z-index: 150;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+.under_header .menu ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    padding: 0;
+    margin: 0;
+}
+
+.under_header .menu ul li {
+    position: relative;
+}
+
+.under_header .menu ul li a {
+    display: block;
+    padding: 10px 16px;
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 4px;
+    transition: background 0.3s;
+}
+
+.under_header .menu ul li a:hover {
+    background-color: #444;
+}
+
+
+/* Dropdown */
+
+.dropdown_1lan {
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    min-width: 160px;
+    background: #333;
+    border: 1px solid #222;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+    z-index: 300;
+    display: flex;
+    flex-direction: column;
+}
+
+.dropdown_1lan li a {
+    color: black;
+    padding: 10px 14px;
+    display: block;
+    text-decoration: none;
+    transition: background 0.3s;
+}
+
+.dropdown_1lan li a:hover {
+    background: #444;
+}
+
+.under_header .menu ul li:hover .dropdown_1lan {
+    opacity: 1;
+    visibility: visible;
+}
+
+
+/* Hero Section */
+
+.hero {
+    background: url('/IMG/hero.jpg') no-repeat center center/cover;
+    color: #fff;
+    text-align: center;
+     /* = đúng chiều cao của .under_header */
+    padding: 120px 0 80px;/* Thêm dòng này để đẩy nội dung xuống dưới */
+}
+
+
+.hero h2 {
+    font-size: clamp(1.8rem, 5vw, 2.5rem);
+    margin-bottom: 15px;
+}
+
+.hero p {
+    font-size: clamp(1rem, 3vw, 1.2rem);
+    margin-bottom: 30px;
+}
+
+.btn {
+    display: inline-block;
+    background: #28a745;
+    color: #fff;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: background 0.3s, box-shadow 0.3s;
+}
+
+.btn:hover {
+    background-color: #218838;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+
+/* Featured Products */
+
+.featured-products {
+    padding: 60px 0;
+    background: #f9f9f9;
+    text-align: center;
+}
+
+.featured-products h2 {
+    font-size: 2rem;
+    margin-bottom: 40px;
+}
+
+.product-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.product-item {
+    background: #fff;
+    padding: 20px;
+    width: 300px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    transition: transform 0.3s;
+}
+
+.product-item img {
+    max-width: 100%;
+    height: 200px;
+    object-fit: contain;
+    display: block;
+    margin: 0 auto 15px;
+}
+
+.product-item:hover {
+    transform: translateY(-5px);
+}
+
+
+/* Footer */
+
+footer {
+    background: #333;
+    color: #fff;
+    text-align: center;
+    padding: 20px 0;
+}
+
+
+/* Responsive design */
+
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        height: auto;
+        padding: 20px;
+    }
+    .nav1 ul {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+        margin: 10px 0;
+    }
+    .timkiem {
+        width: 100%;
+        max-width: none;
+        margin: 10px 0;
+    }
+    .login-signup,
+    .user-info {
+        margin: 10px 0;
+    }
+    .under_header .menu ul {
+        flex-direction: column;
+        gap: 0;
+    }
+    .dropdown_1lan {
+        position: static;
+        width: 100%;
+    }
+    .dropdown_1lan li a {
+        border-bottom: 1px solid #ddd;
+    }
+    .product-list {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+/* Modal Overlay */
+.product-modal {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(0,0,0,0.6);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+  }
+  
+  /* Modal Box */
+  .modal-content {
+    background: #fff;
+    padding: 20px;
+    width: 90%;
+    max-width: 500px;
+    border-radius: 6px;
+    position: relative;
+    text-align: center;
+  }
+  
+  .modal-content img {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 15px;
+  }
+  
+  /* Close Button */
+  .modal-close {
+    position: absolute;
+    top: 10px; right: 15px;
+    font-size: 1.5rem;
+    cursor: pointer;
+  }
+  
+  a, button {
+    transition: all 0.3s ease-in-out;
+}
+
+.btn {
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+.btn:hover {
+    transform: translateY(-2px);
+}
+
+.under_header .menu ul li a {
+    padding: 12px 20px;
+}
+body.modal-open {
+    overflow: hidden;
+    filter: blur(2px);
+}
+.dropdown_1lan li a {
+    color: #fff;
+}
+
+/* Style cho footer sitemap link */
+footer {
+    position: relative;
+  }
+  
+  footer .sitemap {
+    position: absolute;
+    top: 50%;
+    right: 20px;
+    transform: translateY(-50%);
+  }
+  
+  footer .sitemap a {
+    display: inline-block;
+    padding: 6px 12px;
+    background-color: #28a745;
+    color: #fff;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s, transform 0.2s;
+  }
+  
+  footer .sitemap a:hover {
+    background-color: #218838;
+    transform: translateY(-2px);
+  }
+  
+  /* Responsive: chuyển sitemap xuống dưới trên màn hình nhỏ */
+  @media (max-width: 768px) {
+    footer .sitemap {
+      position: static;
+      transform: none;
+      margin-top: 15px;
+      text-align: center;
+    }
+  }

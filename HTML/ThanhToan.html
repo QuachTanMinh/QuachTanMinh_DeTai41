@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Thanh Toán</title>
+    <link href="/CSS/bootstrap.css" rel="stylesheet">
+    <script src="/JS/jquery-3.7.1.min.js"></script>
+    <script src="/JS/bootstrap.js"></script>
+    <link rel="stylesheet" href="/CSS/thanhToan.css">
+</head>
+
+<body>
+     <!-- Header -->
+     <header>
+        <img src="/IMG/ChatGPT Image 09_40_01 5 thg 4, 2025.png" alt="Logo" height="80px" width="100px">
+        <h1>Vật Tư <br> Y Tế MQ</h1>
+        <nav class="nav1">
+            <ul>
+                <li><a href="/index.html">Trang chủ</a></li>
+                <li><a href="../HTML/SanPham.html">Sản phẩm</a></li>
+                <li><a href="../HTML/GioiThieu.html">Giới thiệu</a></li>
+                <li><a href="../HTML/LienHe.html">Liên hệ</a></li>
+                <li><a href="../HTML/shop.html">Giỏ hàng</a></li>
+                <li><a href="../HTML/TaoHoaDon.html">Hóa đơn</a></li>
+            </ul>
+        </nav>
+
+        <!-- Search -->
+        <div class="timkiem">
+            <form class="search-form" action="#" method="get">
+                <input type="search" name="timkiem" id="timkiem" placeholder="Nhập từ khóa tìm kiếm...">
+                <button type="submit">Tìm</button>
+            </form>
+        </div>
+
+        <!-- Login/Signup -->
+        <div class="login-signup">
+            <span><a href="login.html">Đăng nhập</a></span>
+            <span><a href="register.html">Đăng ký</a></span>
+        </div>
+
+        <!-- User Info -->
+        <div class="user-info" id="user-info" style="display: none;">
+            <span id="greeting"></span>
+            <button id="logout-btn">Đăng xuất</button>
+        </div>
+    </header>
+    <!-- Main content for ThanhToan -->
+    <main class="container my-5">
+        <h2>Thanh toán</h2>
+        <ul id="checkoutCart" class="list-group my-3">
+            <li class="list-group-item d-flex justify-content-between align-items-center">Danh Sách Các Sản Phẩm Cần Thanh Toán</li>
+          </ul>
+        <p class="mt-3 fw-bold">Tổng cộng: <span id="totalAmount"></span> đ</p>
+        <button id="btnPay" class="btn btn-success btn-lg w-100 mt-3">Xác nhận & Thanh toán</button>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white text-center py-4 mt-5">
+        <p>&copy; 2025 MQ Medical. All rights reserved.</p>
+        <div class="sitemap"><a href="/HTML/SiteMap.html">SiteMap</a></div>
+    </footer>
+
+    
+    <script>
+         // Chuyển hướng nếu chưa đăng nhập
+         const loggedInUser = localStorage.getItem('loggedInUser');
+        if (!loggedInUser) {
+          alert('Vui lòng đăng nhập để truy cập trang này!');
+          window.location.href = 'login.html';
+        }
+      
+        // Hiển thị thông tin người dùng
+        const userInfo = document.getElementById('user-info');
+        const loginSignup = document.querySelector('.login-signup');
+        const greeting = document.getElementById('greeting');
+        const logoutBtn = document.getElementById('logout-btn');
+      
+        if (loggedInUser) {
+          greeting.textContent = `Xin chào, ${loggedInUser}`;
+          userInfo.style.display = 'flex';
+          loginSignup.style.display = 'none';
+        }
+      
+        
+        logoutBtn.addEventListener('click', function () {
+          localStorage.removeItem('loggedInUser');
+          alert('Bạn đã đăng xuất!');
+          window.location.href = 'login.html';
+        });
+      
+        let cart = JSON.parse(localStorage.getItem('cart') || '[]');
+        const ul = document.getElementById('checkoutCart');
+        let total = 0;
+
+        cart.forEach(p => {
+            const li = document.createElement('li');
+            li.textContent = `${p.name} - ${Number(p.price).toLocaleString()}đ`;
+            ul.appendChild(li);
+            total += Number(p.price);
+        });
+
+        document.getElementById('totalAmount').textContent = total.toLocaleString();
+
+        document.getElementById('btnPay').onclick = () => {
+            if (cart.length === 0) return alert('Chưa có sản phẩm');
+            alert('Thanh toán thành công!');
+            window.location = 'TaoHoaDon.html';
+        };
+    </script>
+    <script src="/JS/auth.js"></script>
+</body>
+
+</html>

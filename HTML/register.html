@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Đăng ký - MQ Medical</title>
+  <link rel="stylesheet" href="../CSS/auth.css">
+</head>
+<body>
+  <div class="auth-container">
+    <h2>Đăng ký</h2>
+    <form id="register-form">
+      <input type="text" id="username" placeholder="Tên đăng nhập" required>
+      <input type="password" id="password" placeholder="Mật khẩu" required>
+      <input type="password" id="confirm-password" placeholder="Xác nhận mật khẩu" required>
+      <button type="submit">Đăng ký</button>
+    </form>
+    <p>Đã có tài khoản? <a href="login.html">Đăng nhập</a></p>
+  </div>
+
+  <script>
+    // Nếu đã đăng nhập, chuyển về trang chủ
+    if (localStorage.getItem('loggedInUser')) {
+      window.location.href = 'index.html';
+    }
+
+    document.getElementById('register-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      const username = document.getElementById('username').value.trim();
+      const password = document.getElementById('password').value;
+      const confirm = document.getElementById('confirm-password').value;
+
+      // 1. Kiểm tra tên đăng nhập
+      if (username.length < 3) {
+        return alert('Tên đăng nhập phải có ít nhất 3 ký tự.');
+      }
+      // 2. Kiểm tra mật khẩu
+      if (password.length < 6) {
+        return alert('Mật khẩu phải có ít nhất 6 ký tự.');
+      }
+      // Mật khẩu phải có chữ và số
+      if (!/[A-Za-z]/.test(password) || !/[0-9]/.test(password)) {
+        return alert('Mật khẩu phải bao gồm cả chữ cái và số.');
+      }
+      // 3. Khớp mật khẩu
+      if (password !== confirm) {
+        return alert('Mật khẩu và xác nhận mật khẩu không khớp.');
+      }
+
+      // 4. (Tuỳ chọn) Kiểm tra xem user đã tồn tại chưa
+      const existing = JSON.parse(localStorage.getItem('registeredUsers') || '[]');
+      if (existing.some(u => u.username === username)) {
+        return alert('Tên đăng nhập này đã được sử dụng, vui lòng chọn tên khác.');
+      }
+
+      // 5. Lưu vào localStorage
+      existing.push({ username, password });
+      localStorage.setItem('registeredUsers', JSON.stringify(existing));
+
+      alert('Đăng ký thành công! Vui lòng đăng nhập.');
+      window.location.href = 'login.html';
+    });
+  </script>
+</body>
+</html>

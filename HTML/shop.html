@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Gian hàng</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/CSS/bootstrap.css" rel="stylesheet">
+    <script src="/JS/jquery-3.7.1.min.js"></script>
+    <script src="/JS/bootstrap.js"></script>
+    <link rel="stylesheet" href="/CSS/shop.css">
+</head>
+<body>
+     <!-- Header -->
+     <header>
+        <img src="/IMG/ChatGPT Image 09_40_01 5 thg 4, 2025.png" alt="Logo" height="80" width="100">
+        <h1>Vật Tư <br> Y Tế MQ</h1>
+        <nav class="nav1">
+            <ul>
+                <li><a href="/index.html">Trang chủ</a></li>
+                <li><a href="../HTML/SanPham.html">Sản phẩm</a></li>
+                <li><a href="../HTML/GioiThieu.html">Giới thiệu</a></li>
+                <li><a href="../HTML/LienHe.html">Liên hệ</a></li>
+                <li><a href="../HTML/shop.html">Giỏ hàng</a></li>
+                <li><a href="../HTML/TaoHoaDon.html">Hóa đơn</a></li>
+            </ul>
+        </nav>
+
+        <!-- Search -->
+        <div class="timkiem">
+            <form class="search-form" action="#" method="get">
+                <input type="search" name="timkiem" id="timkiem" placeholder="Nhập từ khóa tìm kiếm...">
+                <button type="submit">Tìm</button>
+            </form>
+        </div>
+
+        <!-- Login/Signup -->
+        <div class="login-signup">
+            <span><a href="login.html">Đăng nhập</a></span>
+            <span><a href="register.html">Đăng ký</a></span>
+        </div>
+
+        <!-- User Info -->
+        <div class="user-info" id="user-info" style="display: none;">
+            <span id="greeting"></span>
+            <button id="logout-btn">Đăng xuất</button>
+        </div>
+    </header>
+
+
+    <!-- Main -->
+    <main class="container my-5">
+        <h2 class="mb-4 text-center">🛒 Gian hàng</h2>
+        <div id="productList" class="row g-4"></div>
+
+        <!-- Giỏ hàng -->
+        <h3 class="mt-5">🧾 Giỏ hàng</h3>
+        <ul id="cartList" class="list-group"></ul>
+
+        <!-- Nút Thanh toán -->
+        <a href="thanhToan.html" class="btn btn-success mt-4">Thanh toán</a>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white text-center py-4 mt-5">
+        <p>&copy; 2025 Cửa hàng thiết bị y tế. All rights reserved.</p>
+        <div class="sitemap"><a href="/HTML/SiteMap.html">SiteMap</a></div>
+    </footer>
+
+    <!-- Script -->
+    <script>
+        const products = [
+    { id: 1, name: 'Khẩu trang Y tế', price: 10000, img: '/IMG/khau-trang.png' },
+    { id: 2, name: 'Găng tay khám', price: 20000, img: '/IMG/gangtay.png' },
+    { id: 3, name: 'Nhiệt kế điện tử', price: 150000, img: '/IMG/nhietke.png' }
+];
+
+        let cart = JSON.parse(localStorage.getItem('cart') || '[]');
+
+        function renderProducts() {
+    const productList = document.getElementById('productList');
+    productList.innerHTML = '';
+    products.forEach(p => {
+        const col = document.createElement('div');
+        col.className = 'col-md-4';
+        col.innerHTML = `
+            <div class="card h-100 shadow">
+                <img src="${p.img}" class="card-img-top" alt="${p.name}" style="height: 200px; object-fit: cover;">
+                <div class="card-body">
+                    <h5 class="card-title">${p.name}</h5>
+                    <p class="card-text">Giá: ${p.price.toLocaleString()}đ</p>
+                    <button class="btn btn-success" onclick="addToCart(${p.id})">Thêm vào giỏ</button>
+                </div>
+            </div>
+        `;
+        productList.appendChild(col);
+    });
+}
+
+        function addToCart(id) {
+            const prod = products.find(p => p.id === id);
+            cart.push(prod);
+            renderCart();
+            localStorage.setItem('cart', JSON.stringify(cart));
+        }
+
+        function renderCart() {
+            const cartList = document.getElementById('cartList');
+            cartList.innerHTML = '';
+            cart.forEach((item, index) => {
+                const li = document.createElement('li');
+                li.className = 'list-group-item d-flex justify-content-between align-items-center';
+                li.innerHTML = `${item.name} - ${item.price.toLocaleString()}đ
+                <button class="btn btn-sm btn-danger" onclick="removeFromCart(${index})">Xóa</button>`;
+                cartList.appendChild(li);
+            });
+        }
+
+        function removeFromCart(index) {
+            cart.splice(index, 1);
+            renderCart();
+            localStorage.setItem('cart', JSON.stringify(cart));
+        }
+
+        window.onload = () => {
+            renderProducts();
+            renderCart();
+        };
+    </script>
+     <script>
+        // Chuyển hướng nếu chưa đăng nhập
+        const loggedInUser = localStorage.getItem('loggedInUser');
+        if (!loggedInUser) {
+          alert('Vui lòng đăng nhập để truy cập trang này!');
+          window.location.href = 'login.html';
+        }
+      
+        // Hiển thị thông tin người dùng
+        const userInfo = document.getElementById('user-info');
+        const loginSignup = document.querySelector('.login-signup');
+        const greeting = document.getElementById('greeting');
+        const logoutBtn = document.getElementById('logout-btn');
+      
+        if (loggedInUser) {
+          greeting.textContent = `Xin chào, ${loggedInUser}`;
+          userInfo.style.display = 'flex';
+          loginSignup.style.display = 'none';
+        }
+      
+        logoutBtn.addEventListener('click', function () {
+          localStorage.removeItem('loggedInUser');
+          alert('Bạn đã đăng xuất!');
+          window.location.href = 'login.html';
+        });
+      
+        // Modal elements
+        const modal = document.getElementById('product-modal');
+        const modalImg = document.getElementById('modal-img');
+        const modalTitle = document.getElementById('modal-title');
+        const modalMaterial = document.getElementById('modal-material');
+        const modalManufacturer = document.getElementById('modal-manufacturer');
+        const modalDesc = document.getElementById('modal-desc');
+        const modalClose = document.querySelector('.modal-close');
+      
+        // Xử lý khi nhấn nút "Chi tiết"
+        document.querySelectorAll('.product-item .btn').forEach(btn => {
+          btn.addEventListener('click', function (e) {
+            e.preventDefault();
+            const item = this.closest('.product-item');
+      
+            modalImg.src = item.querySelector('img').src;
+            modalTitle.textContent = item.dataset.title;
+            modalMaterial.textContent = item.dataset.material;
+            modalManufacturer.textContent = item.dataset.manufacturer;
+            modalDesc.textContent = item.dataset.desc;
+      
+            modal.style.display = 'flex';
+          });
+        });
+      
+        // Đóng modal
+        modalClose.addEventListener('click', () => modal.style.display = 'none');
+        modal.addEventListener('click', e => {
+          if (e.target === modal) modal.style.display = 'none';
+        });
+      </script>
+      <script src="/JS/auth.js"></script>
+</body>
+</html>

@@ -1,0 +1,383 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+
+/* Container chung */
+
+html,
+body {
+    height: 100%;
+    width: 100%;
+}
+
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+
+/* Header */
+
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #007BFF;
+    color: #fff;
+    padding: 0 20px;
+    height: 80px;
+    position: relative;
+    z-index: 200;
+}
+
+header img {
+    border-radius: 10px;
+    height: 60px;
+    width: 80px;
+}
+
+header h1 {
+    margin-left: 15px;
+    line-height: 1.2;
+    font-size: 1.6em;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+
+/* Navigation trên cùng (nav1) */
+
+.nav1 ul {
+    list-style: none;
+    display: flex;
+    gap: 15px;
+}
+
+.nav1 ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 5px 8px;
+    border-radius: 4px;
+    transition: background 0.3s, color 0.3s;
+}
+
+.nav1 ul li a:hover {
+    background-color: #fff;
+    color: #007BFF;
+}
+
+
+/* Search form */
+
+.timkiem {
+    display: flex;
+    align-items: center;
+    width: 250px;
+}
+
+.timkiem input {
+    flex: 1;
+    padding: 6px 10px;
+    border-radius: 4px;
+    border: 2px solid #0056b3;
+}
+
+.timkiem button {
+    padding: 6px 12px;
+    margin-left: 5px;
+    border-radius: 4px;
+    background-color: #0056b3;
+    border: none;
+    color: #fff;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.timkiem button:hover {
+    background-color: #fff;
+    color: #0056b3;
+}
+
+
+/* Login/Signup & User Info */
+
+.login-signup,
+.user-info {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.login-signup span,
+.user-info button {
+    padding: 6px 14px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background 0.3s, color 0.3s;
+}
+
+.login-signup span a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: bold;
+}
+
+.login-signup span {
+    background-color: #28a745;
+}
+
+.login-signup span:hover {
+    background-color: #fff;
+}
+
+.login-signup span:hover a {
+    color: #28a745;
+}
+
+.user-info span {
+    font-weight: bold;
+    color: #fff;
+}
+
+#logout-btn {
+    background-color: #dc3545;
+    border: none;
+    color: #fff;
+}
+
+#logout-btn:hover {
+    background-color: #fff;
+    color: #dc3545;
+}
+
+
+/* Footer */
+
+footer {
+    background: #333;
+    color: #fff;
+    text-align: center;
+    padding: 20px 0;
+    margin-top: 40px;
+}
+
+
+/* Hero Section (Trang chủ) */
+
+.hero {
+    background: url('../images/hero.jpg') no-repeat center center/cover;
+    color: #fff;
+    text-align: center;
+    padding: 100px 0;
+}
+
+.hero h2 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+}
+
+.hero p {
+    font-size: 1.2em;
+    margin-bottom: 30px;
+}
+
+
+/* Button chung */
+
+.btn {
+    display: inline-block;
+    background: #28a745;
+    color: #fff;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background 0.3s;
+}
+
+.btn:hover {
+    background: #218838;
+}
+
+
+/* About Page */
+
+.about {
+    padding: 60px 0;
+    text-align: center;
+}
+
+.about h2 {
+    font-size: 2em;
+    margin-bottom: 20px;
+}
+
+.about p {
+    font-size: 1.1em;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+
+/* Products Page */
+
+.products {
+    padding: 60px 0;
+    background: #f9f9f9;
+    text-align: center;
+}
+
+.products h2 {
+    font-size: 2em;
+    margin-bottom: 40px;
+}
+
+.product-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.product-item {
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    width: 300px;
+    margin: 10px;
+    padding: 20px;
+    text-align: left;
+}
+
+.product-item img {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 15px;
+}
+
+.product-item h3 {
+    font-size: 1.3em;
+    margin-bottom: 10px;
+}
+
+.product-item p {
+    font-size: 1em;
+    margin-bottom: 15px;
+}
+
+
+/* Contact Page */
+
+.contact {
+    padding: 60px 0;
+}
+
+.contact h2 {
+    text-align: center;
+    font-size: 2em;
+    margin-bottom: 40px;
+}
+
+.contact form {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.contact .form-group {
+    margin-bottom: 20px;
+}
+
+.contact .form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 1em;
+}
+
+.contact .form-group input,
+.contact .form-group textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1em;
+}
+
+.contact .form-group textarea {
+    height: 150px;
+    resize: vertical;
+}
+
+.contact .form-group input:focus,
+.contact .form-group textarea:focus {
+    border-color: #007BFF;
+    outline: none;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.3);
+}
+
+
+/* Responsive design */
+
+@media (max-width: 768px) {
+    header .container {
+        flex-direction: column;
+    }
+    nav ul {
+        flex-direction: column;
+        margin-top: 10px;
+    }
+    nav ul li {
+        margin: 5px 0;
+    }
+    .product-list {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .contact form {
+        padding: 0 15px;
+    }
+}
+
+/* Style cho footer sitemap link */
+footer {
+    position: relative;
+  }
+  
+  footer .sitemap {
+    position: absolute;
+    top: 50%;
+    right: 20px;
+    transform: translateY(-50%);
+  }
+  
+  footer .sitemap a {
+    display: inline-block;
+    padding: 6px 12px;
+    background-color: #28a745;
+    color: #fff;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s, transform 0.2s;
+  }
+  
+  footer .sitemap a:hover {
+    background-color: #218838;
+    transform: translateY(-2px);
+  }
+  
+  /* Responsive: chuyển sitemap xuống dưới trên màn hình nhỏ */
+  @media (max-width: 768px) {
+    footer .sitemap {
+      position: static;
+      transform: none;
+      margin-top: 15px;
+      text-align: center;
+    }
+  }
