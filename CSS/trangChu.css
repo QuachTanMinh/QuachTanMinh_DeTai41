@@ -237,7 +237,7 @@ header h1 {
 /* Hero Section */
 
 .hero {
-    background: url('/IMG/hero.jpg') no-repeat center center/cover;
+    background: url('../IMG/hero.jpg') no-repeat center center/cover;
     color: #fff;
     text-align: center;
      /* = đúng chiều cao của .under_header */
