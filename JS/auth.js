@@ -66,7 +66,7 @@ function getRegisteredUsers() {
       // Đăng nhập thành công
       localStorage.setItem("loggedInUser", username);
       alert("Đăng nhập thành công!");
-      window.location.href = "index.html";
+      window.location.href = "../index.html";
     });
   }
   
